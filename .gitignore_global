@@ -1,0 +1,17 @@
+.envrc
+*~
+.DS_Store
+.ruby-version
+.gemtags
+.tags
+
+TODO.md
+
+
+#inteliJ IDEA
+.idea
+emotional-jenkins-plugin.iml
+.tags1
+
+#pow
+.powder

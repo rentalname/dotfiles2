@@ -1,0 +1,15 @@
+# 差分の前後の表示行数（diff-context)を指定
+set diff-context = 6
+# 水平分割したウィンドウの下画面サイズを % で指定（行数指定も可）
+set split-view-height = 87%
+# 画面を垂直方向に分割する
+set vertical-split = no
+# main viewの左端にコミットIDを表示する
+set main-view = id:yes date:custom author:false commit-title:true,graph:true,refs:true
+
+# マージコミットの差分を表示する
+set diff-options = -m --first-parent
+
+# キーバインドの設定
+bind main L !git checkout %(commit)
+

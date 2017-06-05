@@ -1,0 +1,48 @@
+[user]
+	name = rentalname
+	email = agenda21st@gmail.com
+[core]
+	editor = micro
+	excludesfile = /Users/hash/.gitignore_global
+	attributesfile = ~/.gitattributes_global
+[pager]
+	log = diff-highlight | less
+	show = diff-highlight | less
+	diff = diff-highlight | less
+[difftool "sourcetree"]
+	cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+	trustExitCode = true
+[push]
+	default = simple
+[alias]
+	pco = "!f() { git branch --all | cut -b 3- | peco; }; git checkout `f`"
+	wip = commit --allow-empty --cleanup=scissors
+	cancel = !git commit -a -m 'Temporary commit for cancel' && git reset --hard HEAD~
+	mdiff = !git diff $(git log --merges -1 --format=%H) @
+	changes = !git diff $(git log --merges -1 --format=%H) @ --name-only
+	cpush = !git push origin `git rev-parse --abbrev-ref HEAD`
+[github]
+	user = rentalname
+	email = agenda21st@gmail.com
+[include]
+	path = .gitconfig.local
+[diff]
+	tool = p4merge
+	compactionHeuristic = true
+[merge]
+	tool = p4merge
+[credential]
+	helper = -l
+[commit]
+	cleanup = scissors
+	template = /Users/hash/.gitmessage.txt
+[interactive]
+	difffilter = diff-highlight
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	required = true
+	process = git-lfs filter-process
